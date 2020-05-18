@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { getFundList } from 'src/app/store/selectors/fund-list.selector';
 import { loadFunds } from 'src/app/store/actions/fund.actions';
-import { State } from 'src/app/store/reducers/combined.reducers';
+import { State } from 'src/app/store/reducers/app.reducers';
 import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.selector';
 
 @Component({

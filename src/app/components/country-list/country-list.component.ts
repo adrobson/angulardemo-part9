@@ -3,7 +3,7 @@ import { Country } from 'src/app/data/model';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadCountrys, selectCountry } from 'src/app/store/actions/country.actions';
-import { State } from 'src/app/store/reducers/combined.reducers';
+import { State } from 'src/app/store/reducers/app.reducers';
 import { selectCountryList } from 'src/app/store/selectors/country-list.selector';
 
 @Component({

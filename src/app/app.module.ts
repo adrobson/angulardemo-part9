@@ -17,7 +17,7 @@ import { FundListComponent } from './components/fund-list/fund-list.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import * as stuff from './store/reducers/combined.reducers'; 
+import * as appReducers from './store/reducers/app.reducers'; 
 
 import { CountryEffects } from './store/effects/country.effects';
 import { StockEffects } from './store/effects/stock.effects';
@@ -40,7 +40,7 @@ import { FundEffects } from './store/effects/fund.effects';
     HttpClientModule,
     AppRoutingModule,
     EffectsModule.forRoot([CountryEffects, StockEffects, FundEffects]),
-    StoreModule.forRoot({ app:stuff.appReducers  }),
+    StoreModule.forRoot({ app:appReducers.appReducers  }),
     StoreDevtoolsModule.instrument({
       name: 'NgRx Demo App',
       logOnly: environment.production

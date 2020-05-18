@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { State } from '../reducers/combined.reducers';
+import { State } from '../reducers/app.reducers';
 
 export const selectFundList = (state:State) => state.app.fundList;
 export const getFundList = createSelector(

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { getStockList, selectStockList } from 'src/app/store/selectors/stock-list.selector';
 import { loadStocks } from 'src/app/store/actions/stock.actions';
-import { State } from 'src/app/store/reducers/combined.reducers';
+import { State } from 'src/app/store/reducers/app.reducers';
 import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.selector';
 
 @Component({
