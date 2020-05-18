@@ -14,7 +14,6 @@ import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.
 })
 export class FundListComponent implements OnInit {
 
-  selectedCountryId$:Observable<number> ;
   funds$:Observable<Fund[]>;
 
   constructor(private store:Store<OuterState>) {
@@ -22,8 +21,7 @@ export class FundListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.selectedCountryId$ = this.store.pipe(select(selectSelectedCountry));
-   this.selectedCountryId$.subscribe(x =>
+   this.store.pipe(select(selectSelectedCountry)).subscribe(x =>
      {
        this.getData(x);
      })
