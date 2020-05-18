@@ -15,16 +15,14 @@ import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.
 export class CountryListComponent implements OnInit {
     countrys$:Observable<Country[]>;
     SelectedCountryId:number;
-    selectedCountryId$:Observable<any>;
 
     constructor(private store: Store<OuterState>) {
         this.countrys$ = this.store.pipe(select(selectCountryList));
-        this.selectedCountryId$ = this.store.pipe(select(selectSelectedCountry));
+        this.store.dispatch(loadCountrys());  
     }
 
     ngOnInit(): void {
-        this.store.dispatch(loadCountrys());  
-        this.selectedCountryId$.subscribe(x => {
+        this.store.pipe(select(selectSelectedCountry)).subscribe(x => {
             this.SelectedCountryId = x;
         });
     }

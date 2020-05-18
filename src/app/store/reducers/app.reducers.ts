@@ -5,11 +5,9 @@ import * as fundActions from '../actions/fund.actions';
 import * as countryActions from '../actions/country.actions';
 import { initialState, AppState } from '../state-model/state-model';
 
-
 export interface OuterState {
     appState:AppState
 }
-
 
 const appReducer = createReducer(
     initialState,
