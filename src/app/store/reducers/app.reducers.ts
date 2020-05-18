@@ -3,24 +3,13 @@ import { Action, MetaReducer, createReducer, on } from '@ngrx/store';
 import * as stockActions from '../actions/stock.actions';
 import * as fundActions from '../actions/fund.actions';
 import * as countryActions from '../actions/country.actions';
-import { Country, Fund, Stock } from 'src/app/data/model';
+import { initialState, AppState } from '../state-model/state-model';
 
-export interface AppState{
-    countryList:Country[];
-    selectedCountry:number;
-    stockList:Stock[];
-    fundList:Fund[];
+
+export interface OuterState {
+    appState:AppState
 }
 
-export interface State {
-    app:AppState
-}
-
-export const initialState: AppState = {
-    countryList: [], selectedCountry: -1,
-    stockList: [],
-    fundList: [],
-}
 
 const appReducer = createReducer(
     initialState,
@@ -34,8 +23,8 @@ const appReducer = createReducer(
 )
   
   
-export function appReducers(app: AppState | undefined, action: Action) {
-    return appReducer(app, action);
+export function appReducers(appState: AppState | undefined, action: Action) {
+    return appReducer(appState, action);
 }
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+export const metaReducers: MetaReducer<OuterState>[] = !environment.production ? [] : [];

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Fund } from 'src/app/data/model';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { getFundList } from 'src/app/store/selectors/fund-list.selector';
+import { getFundList, selectFundList } from 'src/app/store/selectors/fund-list.selector';
 import { loadFunds } from 'src/app/store/actions/fund.actions';
-import { State } from 'src/app/store/reducers/app.reducers';
+import { OuterState } from 'src/app/store/reducers/app.reducers';
 import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.selector';
 
 @Component({
@@ -17,8 +17,8 @@ export class FundListComponent implements OnInit {
   selectedCountryId$:Observable<number> ;
   funds$:Observable<Fund[]>;
 
-  constructor(private store:Store<State>) {
-    this.funds$ = this.store.select(x => x.app.fundList);
+  constructor(private store:Store<OuterState>) {
+    this.funds$ = this.store.pipe(select(selectFundList));
   }
 
   ngOnInit(): void {

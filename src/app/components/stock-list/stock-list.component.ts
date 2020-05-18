@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { getStockList, selectStockList } from 'src/app/store/selectors/stock-list.selector';
 import { loadStocks } from 'src/app/store/actions/stock.actions';
-import { State } from 'src/app/store/reducers/app.reducers';
+import { OuterState } from 'src/app/store/reducers/app.reducers';
 import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.selector';
 
 @Component({
@@ -15,7 +15,7 @@ import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.
 export class StockListComponent implements OnInit {
   selectedCountryId$:Observable<number> ;
   stocks$:Observable<Stock[]>;
-  constructor(private store:Store<State>) {
+  constructor(private store:Store<OuterState>) {
     this.stocks$ = this.store.pipe(select(selectStockList));
   }
   

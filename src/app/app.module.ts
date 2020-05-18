@@ -40,7 +40,7 @@ import { FundEffects } from './store/effects/fund.effects';
     HttpClientModule,
     AppRoutingModule,
     EffectsModule.forRoot([CountryEffects, StockEffects, FundEffects]),
-    StoreModule.forRoot({ app:appReducers.appReducers  }),
+    StoreModule.forRoot({ appState:appReducers.appReducers }),
     StoreDevtoolsModule.instrument({
       name: 'NgRx Demo App',
       logOnly: environment.production

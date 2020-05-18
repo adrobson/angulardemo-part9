@@ -1,3 +1,8 @@
-import { State } from '../reducers/app.reducers';
+import { OuterState } from '../reducers/app.reducers';
+import { createSelector } from '@ngrx/store';
 
-export const selectSelectedCountry = (state:State) => state.app.selectedCountry;
+export const selectSelectedCountry = (state:OuterState) => state.appState.selectedCountry;
+export const getSelectedCountry = createSelector(
+    selectSelectedCountry,
+    selectedCountry => selectedCountry
+);

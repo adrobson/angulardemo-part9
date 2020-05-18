@@ -3,8 +3,9 @@ import { Country } from 'src/app/data/model';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadCountrys, selectCountry } from 'src/app/store/actions/country.actions';
-import { State } from 'src/app/store/reducers/app.reducers';
+import { OuterState } from 'src/app/store/reducers/app.reducers';
 import { selectCountryList } from 'src/app/store/selectors/country-list.selector';
+import { selectSelectedCountry } from 'src/app/store/selectors/selected-country.selector';
 
 @Component({
   selector: 'app-country-list',
@@ -16,9 +17,9 @@ export class CountryListComponent implements OnInit {
     SelectedCountryId:number;
     selectedCountryId$:Observable<any>;
 
-    constructor(private store: Store<State>) {
+    constructor(private store: Store<OuterState>) {
         this.countrys$ = this.store.pipe(select(selectCountryList));
-        this.selectedCountryId$ = this.store.select(x => x.app.selectedCountry);
+        this.selectedCountryId$ = this.store.pipe(select(selectSelectedCountry));
     }
 
     ngOnInit(): void {
