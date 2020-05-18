@@ -2,10 +2,13 @@
 
     <label for="countryFormControl">Select a country: </label>
     
-    <select id="countryFormControl" class="form-control" (change)="onChange()" [(ngModel)]="SelectedCountryId" >
-        <option *ngFor="let country of countrys" value={{country.countryId}} >
-            {{country.countryName}}
-        </option>
-    </select>
+    <div *ngIf="countrys$ | async as data">
+        <select id="countryFormControl" class="form-control" (change)="onChange()" [(ngModel)]="SelectedCountryId" >
+            <option *ngFor="let country of data.countryList" value={{country.countryId}} >
+                {{country.countryName}}
+            </option>
+        </select>
+
+    </div>
 
 </div>

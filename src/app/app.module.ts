@@ -11,6 +11,17 @@ import { StocksHomeComponent } from './components/stocks-home/stocks-home.compon
 import { CountryListComponent } from './components/country-list/country-list.component';
 import { StockListComponent } from './components/stock-list/stock-list.component';
 import { FundListComponent } from './components/fund-list/fund-list.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { countryReducers } from './store/reducers/country.reducers';
+import { stockReducers } from './store/reducers/stock.reducers';
+import { fundReducers } from './store/reducers/fund.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { CountryEffects } from './store/effects/country.effects';
+import { StockEffects } from './store/effects/stock.effects';
+import { FundEffects } from './store/effects/fund.effects';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +37,13 @@ import { FundListComponent } from './components/fund-list/fund-list.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EffectsModule.forRoot([CountryEffects, StockEffects, FundEffects]),
+    StoreModule.forRoot({ countryList:countryReducers, stockList:stockReducers, selectedCountry:countryReducers, fundList:fundReducers  }),
+    StoreDevtoolsModule.instrument({
+      name: 'NgRx Demo App',
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
