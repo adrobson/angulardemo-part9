@@ -1,8 +1,7 @@
-import { CountryState } from '../reducers/country.reducers';
 import { createSelector } from '@ngrx/store';
-import { FundState } from '../reducers/fund.reducers';
+import { State } from '../reducers/combined.reducers';
 
-export const selectFundList = (state:FundState) => state.fundList;
+export const selectFundList = (state:State) => state.app.fundList;
 export const getFundList = createSelector(
     selectFundList,
     fundList => fundList

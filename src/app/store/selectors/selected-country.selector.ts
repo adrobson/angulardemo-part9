@@ -1,3 +1,3 @@
-import { CountryState } from '../reducers/country.reducers';
+import { State } from '../reducers/combined.reducers';
 
-export const selectSelectedCountry = (state:CountryState) => state.selectedCountry;
+export const selectSelectedCountry = (state:State) => state.app.selectedCountry;

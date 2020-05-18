@@ -1,6 +1,6 @@
 <h2>Stock List</h2>
 
 <div *ngIf="stocks$ | async as stocks">
-    <div *ngFor="let s of stocks.stockList">{{s.stockId}} - {{s.stockName}}</div>
+    <div *ngFor="let s of stocks">{{s.stockId}} - {{s.stockName}}</div>
 
 </div>

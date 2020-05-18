@@ -4,7 +4,7 @@
     
     <div *ngIf="countrys$ | async as data">
         <select id="countryFormControl" class="form-control" (change)="onChange()" [(ngModel)]="SelectedCountryId" >
-            <option *ngFor="let country of data.countryList" value={{country.countryId}} >
+            <option *ngFor="let country of data" value={{country.countryId}} >
                 {{country.countryName}}
             </option>
         </select>
