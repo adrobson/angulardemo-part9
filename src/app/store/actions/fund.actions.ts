@@ -11,7 +11,3 @@ export const loadFundsSuccess = createAction(
   props<{ payload: Fund[] }>()
 );
 
-export const loadFundsFailure = createAction(
-  '[Fund] Load Funds Failure',
-  props<{ error: any }>()
-);

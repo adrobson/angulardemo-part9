@@ -10,11 +10,6 @@ export const loadCountrysSuccess = createAction(
   props<{ payload: Country[] }>()
 );
 
-export const loadCountrysFailure = createAction(
-  '[Country] Load Countrys Failure',
-  props<{ error: any }>()
-);
-
 export const selectCountry = createAction(
   '[Country] Select Country',
   props<{ selectedCountryId: number }>()
